@@ -1,6 +1,6 @@
-# main
-main is a program for dealing with a csv file and creating a map of where up to 10 films
-were shot,whose location is the closest to the  given by the user input location and the year. 
+# main.py
+main.py is a program for dealing with a csv file and creating a map of where up to 10 films
+were shot,whose location is the closest to the given by the user input location and the year. 
 
 ## be careful
 The program works pretty fast but no stupid input is recommended to do (like invalid location's coordinates)
