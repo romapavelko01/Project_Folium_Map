@@ -3,7 +3,7 @@ This module operates over a csv file and the user input
 of his location and year of the films he would like to check.
 The locations of the those films are to be displayed on the map.
 """
-from math import sqrt
+import math
 
 import folium
 import pandas as pd
@@ -43,7 +43,7 @@ def find_distance(coord_1, coord_2):
     """
     diff_1 = float(coord_1[0]) - float(coord_2[0])
     diff_2 = float(coord_1[1]) - float(coord_2[1])
-    return sqrt(diff_1 ** 2 + diff_2 ** 2)
+    return math.sqrt(diff_1 ** 2 + diff_2 ** 2)
 
 
 def main_func_1(loc, inp_year):
@@ -95,7 +95,7 @@ def main_func_1(loc, inp_year):
     return final_list
 
 
-def add_to_map(lst_to_map, inp_loc):
+def add_to_map(lst_to_map, inp_loc, inp_year):
     """
 
     :param lst_to_map:
@@ -120,12 +120,12 @@ def add_to_map(lst_to_map, inp_loc):
                                                fill_opacity=0.8))
     result_map.add_child(fg_mv)
     result_map.add_child(fg_mp)
-    result_map.save('Map_1.html')
+    result_map.save(str(inp_year)+'_movies_map_.html')
 
 
 if __name__ == "__main__":
     YEAR = int(input("Please enter a year you would like to have a map for: "))
     LOCATION = get_us_location()
     RESULT = main_func_1(LOCATION, YEAR)
-    add_to_map(RESULT, LOCATION)
+    add_to_map(RESULT, LOCATION, YEAR)
     print("Finished. Please have look at the map" + str(YEAR) + "_movies_map.html")
